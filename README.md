@@ -1,6 +1,6 @@
 # Generic Reverse Proxy with HTTPS for Docker
 
-Example of a generic docker-compose nginx reverse proxy with Let's Encrypt companion.
+Template for a generic docker-compose nginx reverse proxy with Let's Encrypt companion and an example of how to connect other composes to the reverse proxy.
 
 ## Requirements
 * docker-compose.yml in version 3.5 (or higher)
