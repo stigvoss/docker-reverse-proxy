@@ -7,7 +7,14 @@ Template for a generic docker-compose nginx reverse proxy with Let's Encrypt com
 * docker-compose version 1.18.0 (or higher)
 * Docker engine 17.06.0 (or higher)
 
-## Connecting a compose to the reverse proxy.
+## Usage
+
+```
+wget https://raw.githubusercontent.com/stigvoss/docker-reverse-proxy/master/docker-compose.yml
+docker-compose up -d
+```
+
+### Connecting a compose to the reverse proxy.
 
 Below is an example of connecting a Roundcube container for exposed as mail.example.com through the reverse proxy.
 
