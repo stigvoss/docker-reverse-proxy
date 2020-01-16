@@ -5,9 +5,9 @@ services:
     container_name: roundcube
     image: roundcube/roundcubemail
     environment:
-     - VIRTUAL_HOST=example.com
-     - LETSENCRYPT_HOST=example.com
-     - LETSENCRYPT_EMAIL=hostmaster@example.com
+     - VIRTUAL_HOST=mail.example.com
+     - LETSENCRYPT_HOST=mail.example.com
+     - LETSENCRYPT_EMAIL=postmaster@example.com
     volumes:
      - /srv/roundcube/html:/var/www/html
     networks:
