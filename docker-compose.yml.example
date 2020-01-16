@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  roundcube:
+    container_name: roundcube
+    image: roundcube/roundcubemail
+    environment:
+     - VIRTUAL_HOST=example.com
+     - LETSENCRYPT_HOST=example.com
+     - LETSENCRYPT_EMAIL=hostmaster@example.com
+    volumes:
+     - /srv/roundcube/html:/var/www/html
+    networks:
+     - reverse-proxy
+
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
