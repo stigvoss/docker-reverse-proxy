@@ -9,7 +9,7 @@ Template for a generic docker-compose nginx reverse proxy with Let's Encrypt com
 
 ## Usage
 
-```
+```bash
 wget https://raw.githubusercontent.com/stigvoss/docker-reverse-proxy/master/docker-compose.yml
 docker-compose up -d
 ```
@@ -18,7 +18,7 @@ docker-compose up -d
 
 Below is an example of connecting a Roundcube container for exposed as mail.example.com through the reverse proxy.
 
-```
+```dockerfile
 version: '3.5'
 
 services:
@@ -42,10 +42,23 @@ networks:
 
 The trick is to use the network created by the reverse proxy compose, which is achieved by defining a network in the compose as external and either providing the network name using the name attribute (shown above) or naming the network the same as the network created by the reverse proxy compose (see below).
 
-```
+```dockerfile
 networks:
   reverse-proxy:
     external: true
 ```
 
 This allows the reverse proxy to discover and adopt your container.
+
+## Note: Requirement for docker-compose version 3.5
+
+It is not strictly necessary to have docker-compose version 3.5 for achieving what is done in this docker-compose, but this exact compose uses named networks (see the example below) to make it easier to ensure the reverse proxy network name is predictable.
+
+```dockerfile
+networks:
+  proxy:
+    name: reverse-proxy
+```
+
+By removing the `name: reverse-proxy`, version 3.5 is not required, but the network will be named according to the compose name and you have to make sure to alter the external network name accordingly.
+
