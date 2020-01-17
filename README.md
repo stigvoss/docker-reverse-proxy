@@ -50,9 +50,9 @@ networks:
 
 This allows the reverse proxy to discover and adopt your container.
 
-## Note: Requirement for docker-compose version 3.5
+## Note: Requirement for docker-compose.yml version 3.5
 
-It is not strictly necessary to have docker-compose version 3.5 for achieving what is done in this docker-compose, but this exact compose uses named networks (see the example below) to make it easier to ensure the reverse proxy network name is predictable.
+It is not strictly necessary to have docker-compose.yml version 3.5 for achieving what is done in this docker-compose, but this exact compose uses named networks (see the example below) to make it easier to ensure the reverse proxy network name is predictable.
 
 ```dockerfile
 networks:
@@ -62,3 +62,14 @@ networks:
 
 By removing the `name: reverse-proxy`, version 3.5 is not required, but the network will be named according to the compose name and you have to make sure to alter the external network name accordingly.
 
+### Upgrading docker-compose
+
+If your docker-compose version is below 1.18.0 and does not support docker-compose.yml version 3.5, you need to upgrade it.
+
+To find your docker-compose version, run the following command:
+
+```bash
+docker-compose -v
+```
+
+To upgrade the docker-compose version, find the [latest release here](https://github.com/docker/compose/releases).
